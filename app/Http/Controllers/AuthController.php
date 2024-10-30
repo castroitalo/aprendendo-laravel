@@ -103,8 +103,16 @@ class AuthController extends Controller
         return null;
     }
 
-    public function logout(): void
+    /**
+     * Logout user from the platform
+     *
+     * @return RedirectResponse
+     */
+    public function logout(): RedirectResponse
     {
-        echo 'Logout';
+        // Logout from the app
+        session()->forget('user');
+
+        return redirect()->to('/login');
     }
 }
