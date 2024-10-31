@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -17,9 +18,19 @@ class MainController extends Controller
      *
      * @return void
      */
-    public function index(): void
+    public function index(): View
     {
-        echo 'I\'m inside the app';
+        // Load user's notes
+        $userId = session('user.id');
+        $userData = User::find($userId)->toArray();
+        $userNotes = User::find($userId)->notes()
+            ->get()
+            ->toArray();
+
+        // Show home view
+        return view('home', [
+            'user_notes' => $userNotes
+        ]);
     }
 
     /**

@@ -14,7 +14,7 @@
                     <!-- form -->
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-12">
-                            <form action="/loginSubmit" method="post">
+                            <form action="{{ route('loginSubmit') }}" method="post">
                                 @csrf
 
                                 <div class="mb-3">
