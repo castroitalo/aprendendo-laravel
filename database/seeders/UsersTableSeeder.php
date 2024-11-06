@@ -6,6 +6,11 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Users table seeder
+ *
+ * @package Database\Seeders
+ */
 class UsersTableSeeder extends Seeder
 {
     /**
